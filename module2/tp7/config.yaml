@@ -1,0 +1,18 @@
+dhcp:
+  interface: lan
+  subnet: 192.168.1.0/24
+  range_start: 192.168.1.100
+  range_end: 192.168.1.200
+  gateway: 192.168.1.1
+  dns:
+    - 192.168.1.1
+    - 1.1.1.1
+  description: TP7 zero-touch DHCP
+nat:
+  - description: TP7 port forward 8080
+    interface: wan
+    protocol: tcp
+    filter_rule: pass
+    external_port: 8080
+    target_ip: 192.168.1.50
+    target_port: 8080
